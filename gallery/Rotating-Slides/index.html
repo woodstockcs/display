@@ -20,60 +20,45 @@
     object-fit: contain; /* Ensure the image covers the entire space */
   }
 
-  #content1,
-  #content2,
-  #content3 {
+  .content {
     display: none; /* Initially hide all content */
   }
 </style>
 </head>
 <body>
 
-  <div id="content1">
+  <div class="content" id="passingTimeContent">
     <!-- Display this during certain times -->
-    <img src="remy.jpeg" alt="Image 1">
   </div>
-  <div id="content2">
+  <div class="content" id="otherTimeContent">
     <!-- Display this the rest of the time -->
-    <img src="CatieSlide.jpeg" alt="Image 2">
   </div>
-  <div id="content3">
-    <!-- Display this the rest of the time -->
-    <img src="content3.jpeg" alt="Image 3">
-  </div>
-
 
 <script>
+  // Define arrays for images to display during different times
+  var passingTimeImages = ["remy.jpeg", "CatieSlide.jpeg", "bunny.webp", "weirdDog.webp"]; // Images for 50-05 minutes
+  var otherTimeImages = ["axolotl.jpeg", "redPanda.jpeg", "guinea.jpeg"]; // Images for other times
+
   // Function to display content based on current time
   function displayContentBasedOnTime() {
     var currentTime = new Date();
-    var hours = currentTime.getHours();
     var mins = currentTime.getMinutes();
 
-
-    // Define the start and end times for displaying content1
-    var startTime = 9; // 9:00 AM
-    var endTime = 17;  // 5:00 PM
-
-    // If current time is within the specified time range (passing time), display Cat and Guinea pig, switching every 2 minutes
-    if (mins > 49 && mins < 59 || mins > 00 && mins < 06) {
-      if (mins > 49 && mins < 52 || mins > 54 && mins < 56 || mins > 58 && mins <= 59){
-        document.getElementById("content1").style.display = "block";
-        document.getElementById("content2").style.display = "none";
-        document.getElementById("content3").style.display = "none";
-      }
-      else{ //display Dog
-        document.getElementById("content1").style.display = "none";
-        document.getElementById("content2").style.display =  "block";
-        document.getElementById("content3").style.display = "none";
-      }
-
+    // If current time is within the specified time range (passing time), display random image from passingTimeImages
+    if (mins > 49 || mins < 6) {
+      displayRandomImage(passingTimeImages, "passingTimeContent");
     } 
-    else { // Otherwise, display Guinea Pig
-      document.getElementById("content1").style.display = "none";
-      document.getElementById("content2").style.display = "none";
-      document.getElementById("content3").style.display = "block";
+    else { // Otherwise, display random image from otherTimeImages
+      displayRandomImage(otherTimeImages, "otherTimeContent");
     }
+  }
+
+  // Function to display a random image from an array into a specified container
+  function displayRandomImage(imageArray, containerId) {
+    var randomIndex = Math.floor(Math.random() * imageArray.length);
+    var container = document.getElementById(containerId);
+    container.style.display = "block";
+    container.innerHTML = `<img src="${imageArray[randomIndex]}" alt="Random Image">`;
   }
 
   // Call the function initially
