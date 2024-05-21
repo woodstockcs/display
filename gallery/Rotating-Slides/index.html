@@ -44,11 +44,14 @@
     var currentTime = new Date();
     var mins = currentTime.getMinutes();
 
+    // Hide both containers initially
+    document.getElementById("passingTimeContent").style.display = "none";
+    document.getElementById("otherTimeContent").style.display = "none";
+
     // If current time is within the specified time range (passing time), display random image from passingTimeImages
     if (mins > 49 || mins < 6) {
       displayRandomImage(passingTimeImages, "passingTimeContent");
-    } 
-    else { // Otherwise, display random image from otherTimeImages
+    } else { // Otherwise, display random image from otherTimeImages
       displayRandomImage(otherTimeImages, "otherTimeContent");
     }
   }
