@@ -146,5 +146,8 @@ function clock() {
   if (min < 10) min = "0" + min;
   if (secs < 10) secs = "0" + secs;
   Hour %= 12;
+   if (Hour == 0) { // If the hour is 0, set it to 12
+    Hour = 12;
+  }
   text(Hour + ":" + min + ":" + secs + noon, width / 2, height / 2);
 }
