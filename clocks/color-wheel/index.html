@@ -18,37 +18,48 @@
         }
         #sketch-container {
             flex: 1;
-            border-right: 1px solid black;
             display: flex;
             justify-content: center;
             align-items: center;
         }
+        #right-container {
+            width: 100px;
+            display: flex;
+            flex-direction: column;
+            border-left: 1px solid #ddd;
+        }
         #image-container {
-            width: 150px;
+            flex: 1;
             display: flex;
             align-items: center;
+            justify-content: center;
         }
-        #tall-skinny-image {
-            height: 400px;
-            background-color: #ddd;
+        #text-container {
+            padding: 10px;
+            border-top: 1px solid #ddd;
         }
-      p {
-            color: white;
-        text-align: center;
-      }
+        #text-container p {
+            margin: 0;
+            text-align: center;
+            font-size: 0.9em;
+          color: white;
+        }
     </style>
   </head>
   <body style="background-color:black">
     <main>
-          <div class="container">
+    <div class="container">
         <div id="sketch-container"></div>
-        <div id="image-container">
-          <img id="tall-skinny-image" src="oh-schedule.png">
-          <br>
-          <br>
-          <p>8pm: Music in the Auditorium!</p>
+        <div id="right-container">
+            <div id="image-container">
+                <img id="tall-skinny-image" src="oh-schedule.png">
+            </div>
+            <div id="text-container">
+                <p>8pm: Music in the Auditorium!</p>
+            </div>
         </div>
     </div>
+          
     </main>
     <script src="sketch.js"></script>
   </body>
