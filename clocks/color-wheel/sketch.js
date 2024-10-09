@@ -20,7 +20,7 @@ let blueStep2 = 0;
   }
 function setup() {
   // createCanvas(windowWidth, windowHeight);
-  let canvas = createCanvas(800, 400);
+  let canvas = createCanvas(700, 400);
   canvas.parent('sketch-container');
    // clockFont = loadFont("Jersey10-Regular.ttf");
 }
