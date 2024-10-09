@@ -19,13 +19,14 @@ let blueStep2 = 0;
   clockFont = loadFont('Jersey10-Regular.ttf');
   }
 function setup() {
-  createCanvas(windowWidth, windowHeight);
-  
+  // createCanvas(windowWidth, windowHeight);
+  let canvas = createCanvas(400, 400);
+  canvas.parent('sketch-container');
    // clockFont = loadFont("Jersey10-Regular.ttf");
 }
 
 function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
+  //resizeCanvas(windowWidth, windowHeight);
 }
 
 function draw() {
