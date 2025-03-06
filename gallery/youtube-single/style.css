@@ -1,7 +1,10 @@
-body {background-color: black;}
+body {
+  background-color: black;
+}
 
 .caption {
   color: #dddddd;
+  font-size: 2.5em;
 }
 
 .link {
